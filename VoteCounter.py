@@ -5,6 +5,13 @@ import gspread
 import json
 import praw
 import re
+import logging
+
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+handler = logging.FileHandler(filename='votecounter.log', encoding='utf-8', mode='w')
+handler.setFormatter(logging.Formatter('%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+logger.addHandler(handler)
 
 # Variables, change these when the government etc changes
 sheetName = '15th Govt Voting Record'  # Identify what 'tab' the votes are on
